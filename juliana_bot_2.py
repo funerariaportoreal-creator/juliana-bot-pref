@@ -37,13 +37,13 @@ from datetime import datetime, timezone
 import requests
 from flask import Flask, request, jsonify
 import anthropic
+import httpx
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("juliana_bot")
 
 app = Flask(__name__)
-client = anthropic.Anthropic()  # lê ANTHROPIC_API_KEY do ambiente automaticamente
-
+client = anthropic.Anthropic(http_client=httpx.Client(proxies=None)) # if ANTHROPIC_API_KEY do ambiente automaticamente
 WHATSAPP_TOKEN = os.environ["WHATSAPP_TOKEN"]
 WHATSAPP_PHONE_ID = os.environ["WHATSAPP_PHONE_ID"]
 WHATSAPP_VERIFY_TOKEN = os.environ["WHATSAPP_VERIFY_TOKEN"]
