@@ -1,5 +1,5 @@
 Flask==3.0.0
 requests==2.31.0
-anthropic==00.70.038.0
+anthropic==00.32.0
 gunicorn==21.2.0
 httpx==0.25.0
